@@ -8197,17 +8197,7 @@ if (!window.__FFSendChatV2) {
       return previousSend.apply(this, arguments);
     }
 
-    // Conservar las respuestas educativas existentes.
-    const answer = localEducationalAnswer(message);
-
-    if (answer !== null) {
-      if (typeof window.addChat === 'function') {
-        window.addChat(message, 'user');
-        input.value = '';
-        window.addChat(answer, 'bot');
-      }
-      return;
-    }
+    
 
     if (typeof window.addChat !== 'function') {
       return previousSend?.apply(this, arguments);
